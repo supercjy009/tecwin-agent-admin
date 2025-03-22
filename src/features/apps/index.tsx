@@ -20,6 +20,7 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { apps } from './data/apps'
+import { useNavigate } from '@tanstack/react-router'
 
 const appText = new Map<string, string>([
   ['all', 'All Apps'],
@@ -31,13 +32,14 @@ export default function Apps() {
   const [sort, setSort] = useState('ascending')
   const [appType, setAppType] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
+  const navigate = useNavigate()
 
   const filteredApps = apps
-    .sort((a, b) =>
-      sort === 'ascending'
-        ? a.name.localeCompare(b.name)
-        : b.name.localeCompare(a.name)
-    )
+    // .sort((a, b) =>
+    //   sort === 'ascending'
+    //     ? a.name.localeCompare(b.name)
+    //     : b.name.localeCompare(a.name)
+    // )
     .filter((app) =>
       appType === 'connected'
         ? app.connected
@@ -54,7 +56,6 @@ export default function Apps() {
         <Search />
         <div className='ml-auto flex items-center gap-4'>
           <ThemeSwitch />
-          <ProfileDropdown />
         </div>
       </Header>
 
@@ -88,7 +89,7 @@ export default function Apps() {
             </Select>
           </div>
 
-          <Select value={sort} onValueChange={setSort}>
+          {/* <Select value={sort} onValueChange={setSort}>
             <SelectTrigger className='w-16'>
               <SelectValue>
                 <IconAdjustmentsHorizontal size={18} />
@@ -108,7 +109,7 @@ export default function Apps() {
                 </div>
               </SelectItem>
             </SelectContent>
-          </Select>
+          </Select> */}
         </div>
         <Separator className='shadow' />
         <ul className='faded-bottom no-scrollbar grid gap-4 overflow-auto pb-16 pt-4 md:grid-cols-2 lg:grid-cols-3'>
@@ -127,8 +128,9 @@ export default function Apps() {
                   variant='outline'
                   size='sm'
                   className={`${app.connected ? 'border border-blue-300 bg-blue-50 hover:bg-blue-100 dark:border-blue-700 dark:bg-blue-950 dark:hover:bg-blue-900' : ''}`}
+                  onClick={() => navigate({ to: app.url })}
                 >
-                  {app.connected ? 'Connected' : 'Connect'}
+                  跳转
                 </Button>
               </div>
               <div>

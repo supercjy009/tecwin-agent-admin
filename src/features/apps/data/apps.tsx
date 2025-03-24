@@ -22,7 +22,7 @@ export const apps = [
     name: '流程图生成',
     logo: <IconChartArea />,
     connected: true,
-    desc: '大模型根据Prompt生成流程图.',
+    desc: '大模型根据Prompt生成流程图',
     url: '/apps/flow-chart',
   },
   {

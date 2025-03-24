@@ -63,21 +63,21 @@ export default function Apps() {
       <Main fixed>
         <div>
           <h1 className='text-2xl font-bold tracking-tight'>
-            App Integrations
+            AI Agents
           </h1>
           <p className='text-muted-foreground'>
-            Here&apos;s a list of your apps for the integration!
+            Here&apos;s a list of your Agents for the integration!
           </p>
         </div>
         <div className='my-4 flex items-end justify-between sm:my-0 sm:items-center'>
           <div className='flex flex-col gap-4 sm:my-4 sm:flex-row'>
             <Input
-              placeholder='Filter apps...'
+              placeholder='Filter Agents...'
               className='h-9 w-40 lg:w-[250px]'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Select value={appType} onValueChange={setAppType}>
+            {/* <Select value={appType} onValueChange={setAppType}>
               <SelectTrigger className='w-36'>
                 <SelectValue>{appText.get(appType)}</SelectValue>
               </SelectTrigger>
@@ -86,7 +86,7 @@ export default function Apps() {
                 <SelectItem value='connected'>Connected</SelectItem>
                 <SelectItem value='notConnected'>Not Connected</SelectItem>
               </SelectContent>
-            </Select>
+            </Select> */}
           </div>
 
           {/* <Select value={sort} onValueChange={setSort}>

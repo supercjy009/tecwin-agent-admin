@@ -15,4 +15,15 @@ export default defineConfig({
       '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://10.10.30.188",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+    // https: true
+  },
 })

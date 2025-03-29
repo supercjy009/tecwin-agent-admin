@@ -9,7 +9,7 @@ const API_ENDPOINTS = {
     'http://127.0.0.1:7860/api/v1/run/13b817f9-1478-4f5a-8775-c6f4de8019e7?stream=false',
   PROMPT:
     // "http://127.0.0.1:7860/api/v1/run/4d0b2b50-b0b9-4661-b9dc-9ae144a85a58?stream=false",
-    '/api/v1/chat-messages',
+    process.env.NODE_ENV === 'development' ? '/api/v1/chat-messages' : 'http://10.10.30.188/v1/chat-messages',
 }
 
 // Helper function to determine the input type
@@ -93,7 +93,7 @@ export async function generateMindMap(input: string): Promise<string> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer <your api key>',
+        'Authorization': 'Bearer ',
       },
       body: JSON.stringify({
         inputs: { text: input },

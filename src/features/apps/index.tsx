@@ -63,10 +63,10 @@ export default function Apps() {
       <Main fixed>
         <div>
           <h1 className='text-2xl font-bold tracking-tight'>
-            AI Agents
+            Agents
           </h1>
           <p className='text-muted-foreground'>
-            Here&apos;s a list of your Agents for the integration!
+             智能体集合
           </p>
         </div>
         <div className='my-4 flex items-end justify-between sm:my-0 sm:items-center'>
